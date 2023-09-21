@@ -1,174 +1,178 @@
-# [Material Tailwind Kit React](http://demos.creative-tim.com/material-tailwind-kit-react/#/?ref=readme-mtkr) [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&logo=twitter)](https://twitter.com/intent/tweet?url=https://www.creative-tim.com/product/material-tailwind-kit-react&text=Check%20Material%20Tailwind%20Kit%20React%20made%20by%20@CreativeTim%20#webdesign%20#kit%20#materialdesign%20#react%20#materialtailwind%20#tailwindcss%20https://www.creative-tim.com/product/material-tailwind-kit-react)
+# How To Serve React Application With NGINX and Docker
 
-![version](https://img.shields.io/badge/version-2.0.0-blue.svg) [![GitHub issues open](https://img.shields.io/github/issues/creativetimofficial/material-tailwind-kit-react.svg)](https://github.com/creativetimofficial/material-tailwind-kit-react/issues?q=is%3Aopen+is%3Aissue) [![GitHub issues closed](https://img.shields.io/github/issues-closed-raw/creativetimofficial/material-tailwind-kit-react.svg)](https://github.com/creativetimofficial/material-tailwind-kit-react/issues?q=is%3Aissue+is%3Aclosed)
+Date Added: September 19, 2022 2:00 PM
 
-![Image](https://s3.amazonaws.com/creativetim_bucket/products/486/original/material-tailwind-kit-react.jpg)
+<aside>
+💡 This template documents how to review code. Helpful for new and remote employees to get and stay aligned.
 
-Material Tailwind Kit React is our newest free Material Tailwind UI Kit based on Tailwind CSS and React. If you’re a developer looking to create an ui kit that is developer-friendly, rich with features, and highly customisable, here is your match. Our innovative Material Tailwind, Tailwind CSS & React ui kit comes with a beautiful design inspired by Google's Material Design and it will help you create stunning websites & web apps to delight your clients.
+</aside>
 
-**Fully Coded Elements**
+### **Step 1: Create React App Using Vite (Skip this step if you already have a react app)**
 
-Material Tailwind Kit React is built with over 40 frontend individual elements coming from @material-tailwind/react, like buttons, inputs, navbars, nav tabs, cards, or alerts, giving you the freedom of choosing and combining. All components can take variations in color, which you can easily modify using props and tailwind css classnames. You will save a lot of time going from prototyping to full-functional code because all elements are implemented.
-
-This free Material Tailwind, Tailwind CSS & React UI Kit is coming with prebuilt design blocks, so the development process is seamless, switching from our pages to the real website is very easy to be done.
-
-View [all components here](https://www.material-tailwind.com/docs/react/button).
-
-**Documentation built by Developers**
-
-Each element is well presented in very complex documentation.
-
-You can read more about the [documentation here](https://www.material-tailwind.com/docs/react/installation).
-
-**Example Pages**
-
-If you want to get inspiration or just show something directly to your clients, you can jump-start your development with our pre-built example pages. You will be able to quickly set up the basic structure for your web project.
-
-View [example pages here](https://demos.creative-tim.com/material-tailwind-kit-react/#/home).
-
-**HELPFUL LINKS**
-
-- View [Github Repository](https://github.com/creativetimofficial/material-tailwind-kit-react)
-- Check [FAQ Page](https://www.creative-tim.com/faq)
-
-#### Special thanks
-
-During the development of this ui kit, we have used many existing resources from awesome developers. We want to thank them for providing their tools open source:
-
-- [Material Tailwind](https://material-tailwind.com/) - Material Tailwind is an easy to use components library for Tailwind CSS and Material Design.
-- [Hero Icons](https://heroicons.com/) - Beautiful hand-crafted SVG icons.
-- [Nepcha Analytics](https://nepcha.com?ref=readme) for the analytics tool. Nepcha is already integrated with Material Tailwind Kit React. You can use it to gain insights into your sources of traffic.
-
-Let us know your thoughts below. And good luck with development!
-
-## Table of Contents
-
-- [Versions](#versions)
-- [Demo](#demo)
-- [Quick Start](#quick-start)
-- [Documentation](#documentation)
-- [File Structure](#file-structure)
-- [Browser Support](#browser-support)
-- [Resources](#resources)
-- [Reporting Issues](#reporting-issues)
-- [Technical Support or Questions](#technical-support-or-questions)
-- [Licensing](#licensing)
-- [Useful Links](#useful-links)
-
-## Versions
-
-[<img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/react-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/material-tailwind-kit-react?ref=readme-mtkr)
-
-| React |
-| ----- |
-
-| [![Material Tailwind Kit React](https://s3.amazonaws.com/creativetim_bucket/products/486/thumb/material-tailwind-kit-react.jpg)](http://demos.creative-tim.com/material-tailwind-kit-react/#/?ref=readme-mtkr)
-
-## Demo
-
-- [Home page](https://demos.creative-tim.com/material-tailwind-kit-react/#/home?ref=readme-mtkr)
-- [Profile page](https://demos.creative-tim.com/material-tailwind-kit-react/#/profile?ref=readme-mtkr)
-- [Sign in page](https://demos.creative-tim.com/material-tailwind-kit-react/#/sign-in?ref=readme-mtkr)
-- [Sign up page](https://demos.creative-tim.com/material-tailwind-kit-react/#/sign-up?ref=readme-mtkr)
-
-[View More](https://demos.creative-tim.com/material-tailwind-kit-react/#/?ref=readme-mtkr).
-
-## Quick start
-
-Quick start options:
-
-- Downdload from [Creative Tim](https://www.creative-tim.com/product/material-tailwind-kit-react?ref=readme-mtkr).
-
-## Terminal Commands
-
-1. Download and Install NodeJs LTS version from [NodeJs Official Page](https://nodejs.org/en/download/).
-2. Navigate to the root ./ directory of the product and run `npm install` or `yarn install` or `pnpm install` to install our local dependencies.
-
-## Documentation
-
-The documentation for the Material Tailwind Kit React is hosted at our [website](https://material-tailwind.com/?ref=readme-mtkr).
-
-### What's included
-
-Within the download you'll find the following directories and files:
-
-```
-material-tailwind-kit-react
-    ├── public
-    │   ├── css
-    │   └── img
-    ├── src
-    │   ├── data
-    │   ├── pages
-    │   ├── widgets
-    │   ├── App.jsx
-    │   ├── main.jsx
-    │   └── routes.jsx
-    ├── .gitignore
-    ├── CHANGELOG.md
-    ├── index.html
-    ├── ISSUE_TEMPLATE.md
-    ├── jsconfig.json
-    ├── LICENSE
-    ├── package.json
-    ├── postcsss.config.cjs
-    ├── prettier.config.cjs
-    ├── README.md
-    ├── tailwind.config.cjs
-    └── vite.config.js
+```bash
+npm create vite@latest
 ```
 
-## Browser Support
+You'll be asked for
 
-At present, we officially aim to support the last two versions of the following browsers:
+- App Name
+- Which Framework to use like React, Angular, or Vue? Choose React
+- Then, Typescript or Javascript. Choose as you wish
 
-<img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/chrome.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/firefox.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/edge.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/safari.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/opera.png" width="64" height="64">
+Vite Project Initialization
 
-## Resources
+Now switch to the project directory
 
-- [Live Preview](https://demos.creative-tim.com/material-tailwind-kit-react/#/home?ref=readme-mtkr)
-- [Download Page](https://www.creative-tim.com/product/material-tailwind-kit-react?ref=readme-mtkr)
-- Documentation is [here](https://material-tailwind.com/?ref=readme-mtkr)
-- [License Agreement](https://www.creative-tim.com/license?ref=readme-mtkr)
-- [Support](https://www.creative-tim.com/contact-us?ref=readme-mtkr)
-- Issues: [Github Issues Page](https://github.com/creativetimofficial/material-tailwind-kit-react/issues)
-- [Nepcha Analytics](https://nepcha.com?ref=readme) - Analytics tool for your website
+```bash
+cd [your project name]
+```
 
-## Reporting Issues
+### **Step 2: Update vite.config File**
 
-We use GitHub Issues as the official bug tracker for the Material Tailwind Kit React. Here are some advices for our users that want to report an issue:
+This step is required to map the port between Docker container and your React app
 
-1. Make sure that you are using the latest version of the Material Tailwind Kit React. Check the CHANGELOG from your dashboard on our [website](https://www.creative-tim.com/product/material-tailwind-kit-react?ref=readme-mtkr).
-2. Providing us reproducible steps for the issue will shorten the time it takes for it to be fixed.
-3. Some issues may be browser specific, so specifying in what browser you encountered the issue might help.
+Now replace this code snippet in `vite.config`
 
-## Technical Support or Questions
+```jsx
+export default defineConfig({
+  plugins: [react()],
+});
 
-If you have questions or need help integrating the product please [contact us](https://www.creative-tim.com/contact-us?ref=readme-mtkr) instead of opening an issue.
+```
 
-## Licensing
+to
 
-- Copyright 2022 [Creative Tim](https://www.creative-tim.com?ref=readme-mtkr)
-- Creative Tim [license](https://www.creative-tim.com/license?ref=readme-mtkr)
+```jsx
+export default defineConfig({
+  plugins: [react()],
+  server: {
+    watch: {
+      usePolling: true,
+    },
+    host: true, // needed for the Docker Container port mapping to work
+    strictPort: true,
+    port: 5173, // you can replace this port with any port
+  }
 
-## Useful Links
+```
 
-- [More products](https://www.creative-tim.com/templates?ref=readme-mtkr) from Creative Tim
+### **Step 3: Create a Dockerfile**
 
-- [Tutorials](https://www.youtube.com/channel/UCVyTG4sCw-rOvB9oHkzZD1w)
+Create a file called `Dockerfile` in the root of your project directory.
 
-- [Freebies](https://www.creative-tim.com/bootstrap-themes/free?ref=readme-mtkr) from Creative Tim
+### **Step 4: Add Commands to Dockerfile**
 
-- [Affiliate Program](https://www.creative-tim.com/affiliates/new?ref=readme-mtkr) (earn money)
+Copy these commands to your Dockerfile
 
-##### Social Media
+```docker
+# Stage 0, "build-stage", based on Node.js, to build and compile the frontend
+FROM tiangolo/node-frontend:10 as build-stage
 
-Twitter: <https://twitter.com/CreativeTim>
+WORKDIR /app
 
-Facebook: <https://www.facebook.com/CreativeTim>
+COPY package*.json /app/
 
-Dribbble: <https://dribbble.com/creativetim>
+RUN npm install
 
-Google+: <https://plus.google.com/+CreativetimPage>
+COPY ./ /app/
 
-Instagram: <https://instagram.com/creativetimofficial>
+RUN npm run build
+
+# Stage 1, based on Nginx, to have only the compiled app, ready for production with Nginx
+FROM nginx:1.15
+
+COPY --from=build-stage /app/build/ /usr/share/nginx/html
+
+# Copy the default nginx.conf provided by tiangolo/node-frontend
+COPY --from=build-stage /nginx.conf /etc/nginx/conf.d/default.conf
+```
+
+The explanation for these commands:
+
+- This will tell Docker that we will start with a base image **node:10-alpine** which in turn is based on the [Node.js official image](https://hub.docker.com/_/node/), notice that you won’t have to install and configure Node.js inside the Linux container or anything, Docker does that for you:
+
+```docker
+FROM node:10-alpine as builder
+```
+
+- Our working directory will be `/react-nginx-docker`. This Docker "instruction" will create that directory and go inside of it, all the next steps will "be" in that directory:
+
+```docker
+WORKDIR /react-nginx-docker
+```
+
+- Now, this instruction copies all the files that start with `package` and end with `.json` from your source to inside the container. With the `package*.json` it will include the `package.json` file and also the `package-lock.json` if you have one, but it won't fail if you don't have it. Just that file (or those 2 files), before the rest of the source code, because we want to install everything the first time, but not every time we change our source code. The next time we change our code and build the image, Docker will use the cached "layers" with everything installed (because the `package.json`hasn't changed) and will only compile our source code:
+
+```docker
+COPY package.json package-lock.json ./
+```
+
+- Install all the dependencies, this will be cached until we change the `package.json` file (changing our dependencies). So it won't take very long installing everything every time we iterate in our source code and try to test (or deploy) the production Docker image, just the first time and when we update the dependencies (installed packages):
+
+```docker
+RUN npm install
+```
+
+- Now, after installing all the dependencies, we can copy our source code. This section will not be cached that much, because we’ll be changing our source code constantly, but we already took advantage of Docker caching for all the package install steps in the commands above. So, let’s copy our source code:
+
+```docker
+COPY . .
+```
+
+- Then build the React app with:
+
+```docker
+RUN npm run build
+```
+
+…that will build our app, to the directory `./build/`. Inside the container will be in `/app/build/`.
+
+- In the same `Dockerfile` file, we start another section (another "stage"), like if 2 `Dockerfile`s were concatenated. That's Docker multi-stage building. It almost just looks like concatenating `Dockerfile`s. So, let's start with an [official Nginx base image](https://hub.docker.com/_/nginx/) for this "stage":
+
+```docker
+FROM nginx:alpine
+```
+
+…if you were very concerned about disk space (and you didn’t have any other image that probably shares the same base layers), or if, for some reason, you are a fan of Alpine Linux, you could change that line and use an [Alpine version](https://hub.docker.com/_/nginx/).
+
+- Here’s the Docker multi-stage trick. This is a normal `COPY`, but it has a `-from=builder`. That `builder` refers to the name we specified above in the `as builder`. Here, although we are in a Nginx image, starting from scratch, we can copy files from a previous stage. So, we can copy the compiled fresh version of our app. That compiled version is based on the latest source code, and that latest compiled version only lives in the previous Docker "stage", for now. But we'll copy it to the Nginx directory, just as static files:
+
+```docker
+COPY --from=builder /react-nginx-docker/build /usr/share/nginx/html
+```
+
+- This configuration file directs everything to `index.html`, so that if you use a router like [React router](https://reacttraining.com/react-router/) it can take care of it's routes, even if your users type the URL directly in the browser:
+
+```docker
+COPY ./.nginx/nginx.conf /etc/nginx/nginx.conf
+```
+
+…that’s it for the `Dockerfile`! Doing that with scripts or any other method would be a lot more cumbersome.
+
+## **Step 5: Build the Dockerfile**
+
+Now we can build our image, doing it will compile everything and create a Nginx image ready for serving our app.
+
+- Build your image and tag it with a name:
+
+```bash
+docker build -t react-nginx-docker .
+```
+
+## **Step 6: Run the Docker Container**
+
+To check that your new Docker image is working, you can start a container based on it and see the results.
+
+- To test your image start a container based on it:
+
+```bash
+docker run -p 80:80 react-nginx-docker
+```
+
+…you won’t see any logs, just your terminal hanging there.
+
+- Open your browser in [http://localhost](http://localhost/).
+
+## **Step 7: Open the App in the Browser**
+
+Open the Browser and access `http://localhost:[Port you mentioned in the docker run command]` as per the configuration we did so far it should be `<http://localhost:8080>`
