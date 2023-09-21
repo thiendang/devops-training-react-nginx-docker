@@ -1,13 +1,13 @@
 # How To Serve React Application With NGINX and Docker
 
-Date Added: September 19, 2022 2:00 PM
+Date Added: September 19, 2023 2:00 PM
 
 <aside>
 💡 This template documents how to review code. Helpful for new and remote employees to get and stay aligned.
 
 </aside>
 
-### **Step 1: Create React App Using Vite (Skip this step if you already have a react app)**
+## **Step 1: Create React App Using Vite (Skip this step if you already have a react app)**
 
 ```bash
 npm create vite@latest
@@ -27,7 +27,7 @@ Now switch to the project directory
 cd [your project name]
 ```
 
-### **Step 2: Update vite.config File**
+## **Step 2: Update vite.config File**
 
 This step is required to map the port between Docker container and your React app
 
@@ -56,11 +56,11 @@ export default defineConfig({
 
 ```
 
-### **Step 3: Create a Dockerfile**
+## **Step 3: Create a Dockerfile**
 
 Create a file called `Dockerfile` in the root of your project directory.
 
-### **Step 4: Add Commands to Dockerfile**
+## **Step 4: Add Commands to Dockerfile**
 
 Copy these commands to your Dockerfile
 
@@ -176,3 +176,162 @@ docker run -p 80:80 react-nginx-docker
 ## **Step 7: Open the App in the Browser**
 
 Open the Browser and access `http://localhost:[Port you mentioned in the docker run command]` as per the configuration we did so far it should be `<http://localhost:8080>`
+
+# AWS — Deploying React App With NGINX on EKS
+
+Date Added: September 19, 2023 2:01 PM
+
+<aside>
+💡 This template documents how to review code. Helpful for new and remote employees to get and stay aligned.
+
+</aside>
+
+## **Pushing Docker Image To ECR**
+
+Amazon Elastic Container Registry (ECR) is a fully-managed [Docker](https://aws.amazon.com/docker/) container registry that makes it easy for developers to store, manage, and deploy Docker container images. Amazon ECR is integrated with [Amazon Elastic Container Service (ECS)](https://aws.amazon.com/ecs/), simplifying your development to production workflow.
+
+Amazon ECS works with any Docker registry such as Docker Hub, etc. But, in this post, we see how we can use Amazon ECR to store our Docker images. Once you set up the Amazon account and create an IAM user with Administrator access the first thing you need to create a Docker repository.
+
+You can create your first repository either by AWS console or AWS CLI
+
+### **AWS console**
+
+Creating a repository with AWS console is straightforward and all you need to give a name.
+
+![**creating repository**](aws-assets/Untitled.png)
+
+**creating repository**
+
+![Untitled](aws-assets/Untitled%201.png)
+
+### **Tagging your local Docker image and Pushing**
+
+Retrieve an authentication token and authenticate your Docker client to your registry
+
+```bash
+aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin 536518333639.dkr.ecr.ap-northeast-1.amazonaws.com
+```
+
+You have created a Docker image on your local machine earlier. It’s time to tag that image with this repository URI in the above image.
+
+```bash
+docker tag react-nginx-ui:latest 536518333639.dkr.ecr.ap-northeast-1.amazonaws.com/frontend/web-app:v1
+```
+
+Once you tag the image and it’s time to push the Docker image into your repository.
+
+```bash
+// list the images
+docker images
+// push the image
+docker push 536518333639.dkr.ecr.ap-northeast-1.amazonaws.com/frontend/web-app:v1
+```
+
+**Pushing Docker image**
+
+![Untitled](aws-assets/Untitled%202.png)
+
+**Docker image with tag v1**
+
+![Untitled](aws-assets/Untitled%203.png)
+
+## **Create a Cluster and Worker Nodes**
+
+Getting started with AWS EKS is easy all you need to do the following steps
+
+- We need to create an AWS EKS cluster with AWS console, SDK, or AWS CLI.
+- Create a worker node group that registers with EKS Cluster
+- When your cluster is ready, you can configure **kubectl** to communicate with your cluster.
+- Deploy and manage your applications on the cluster
+
+### **Cluster Creation**
+
+Let’s create a cluster by [following this guide here](https://docs.aws.amazon.com/eks/latest/userguide/create-cluster.html). Make sure you created a role for the EKS to allow Amazon EKS and the Kubernetes control plane to manage AWS resources on your behalf. I created a role called **eks_cluster_role. [Here is a link to create a cluster role.](https://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html#create-service-role)**
+
+![Untitled](aws-assets/Untitled%204.png)
+
+![Untitled](aws-assets/Untitled%205.png)
+
+![Untitled](aws-assets/Untitled%206.png)
+
+Let’s create a cluster by giving the below information.
+
+![Untitled](aws-assets/Untitled%207.png)
+
+It takes some time for the cluster to get created and it should be in the active state once it is created.
+
+### **Create Worker Nodes**
+
+It’s time to create nodes and before you do that we have to create this role called NodeInstanceRole (EC2). [Follow this guide to create one.](https://docs.aws.amazon.com/eks/latest/userguide/worker_node_IAM_role.html)
+
+![Untitled](aws-assets/Untitled%208.png)
+
+[Follow this guide to create a node group after the role is created.](https://docs.aws.amazon.com/eks/latest/userguide/create-managed-node-group.html)
+
+![Untitled](aws-assets/Untitled%209.png)
+
+![Untitled](aws-assets/Untitled%2010.png)
+
+## **Configure kubectl to use Cluster**
+
+- We need to install kubectl on our machine, [follow this guide to install depending on your OS.](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
+- The next thing we need to do is to install an aws-iam-authenticator. [Follow this guide.](https://docs.aws.amazon.com/eks/latest/userguide/install-aws-iam-authenticator.html) We need this to authenticate the cluster and it uses the same user as AWS CLI is authenticated with.
+- Use the AWS CLI **update-kubeconfig** command to create or update your kubeconfig for your cluster. Here region-code is **ap-northeast-1** and cluster_name is **frontend_cluster**
+
+```bash
+aws eks --region region-code update-kubeconfig --name cluster_name
+// like this
+aws eks --region ap-northeast-1 update-kubeconfig --name frontend_cluster
+```
+
+![Untitled](aws-assets/Untitled%2011.png)
+
+You can check with these commands.
+
+```bash
+// get the service
+kubectl get nodes
+// get the current context
+kubectl config current-context
+```
+
+![Untitled](aws-assets/Untitled%2012.png)
+
+## **Deploy Kubernetes Objects On AWS EKS Cluster**
+
+Now we have configured kubectl to use AWS EKS from our own machine. Let’s create deployment and service objects and use the image from the AWS ECR. Here is the manifest file which contains these objects.
+
+At the root folder just use this command to create objects `kubectl create -f manifest.yml`
+
+![Untitled](aws-assets/Untitled%2013.png)
+
+You can use the following commands to verify all the objects are in the desired state.
+
+```docker
+// list the deployment
+kubectl get deploy
+// list the pods
+kubectl get po
+// list the service
+kubectl get svc
+```
+
+![Untitled](aws-assets/Untitled%2014.png)
+
+You can check the settings automatically made in ALB by going to the AWS Management Console in **Amazon EC2 > Load Balancers > Copy DNS name.** Paste the URL into your browser:
+
+![Untitled](aws-assets/Untitled%2015.png)
+
+![Untitled](aws-assets/Untitled%2016.png)
+
+## **Summary**
+
+- Amazon Elastic Kubernetes Service (Amazon EKS) is a managed service that makes it easy for you to run Kubernetes on AWS without needing to stand up or maintain your own Kubernetes control plane.
+- You need to create an AWS Account as a prerequisite.
+- It’s not a best practice to use your root account to do any tasks instead you should create an IAM group that has permissions for administrator access and add a user to it and log in with that user.
+- You should use this command `aws configure` with access key and secret key.
+- Amazon EKS is a managed service that makes it easy for you to run Kubernetes on AWS.
+- Amazon Elastic Container Registry (ECR) is a fully-managed [Docker](https://aws.amazon.com/docker/) container registry that makes it easy for developers to store, manage, and deploy Docker container images.
+- Amazon ECR is integrated with [Amazon Elastic Container Service (ECS)](https://aws.amazon.com/ecs/), simplifying your development to production workflow.
+- Amazon ECS works with any Docker registry such as Docker Hub, etc.
+- You have to follow these steps to run apps on the Kubernetes cluster: we need to create an AWS EKS cluster with AWS console, SDK, or AWS CLI. Create a worker node group that registers with EKS Cluster, when your cluster is ready, you can configure **kubectl** to communicate with your cluster, Deploy and manage your applications on the cluster
