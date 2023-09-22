@@ -217,11 +217,11 @@ You can create your first repository either by AWS console or AWS CLI
 
 Creating a repository with AWS console is straightforward and all you need to give a name.
 
-![**creating repository**](aws-assets/Untitled.png)
+![**creating repository**](md-assets/Untitled.png)
 
 **creating repository**
 
-![Untitled](aws-assets/Untitled%201.png)
+![Untitled](md-assets/Untitled%201.png)
 
 ### **Tagging your local Docker image and Pushing**
 
@@ -248,11 +248,11 @@ docker push 536518333639.dkr.ecr.ap-northeast-1.amazonaws.com/frontend/web-app:v
 
 **Pushing Docker image**
 
-![Untitled](aws-assets/Untitled%202.png)
+![Untitled](md-assets/Untitled%202.png)
 
 **Docker image with tag v1**
 
-![Untitled](aws-assets/Untitled%203.png)
+![Untitled](md-assets/Untitled%203.png)
 
 ## **Create a Cluster and Worker Nodes**
 
@@ -267,15 +267,15 @@ Getting started with AWS EKS is easy all you need to do the following steps
 
 Let’s create a cluster by [following this guide here](https://docs.aws.amazon.com/eks/latest/userguide/create-cluster.html). Make sure you created a role for the EKS to allow Amazon EKS and the Kubernetes control plane to manage AWS resources on your behalf. I created a role called **eks_cluster_role. [Here is a link to create a cluster role.](https://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html#create-service-role)**
 
-![Untitled](aws-assets/Untitled%204.png)
+![Untitled](md-assets/Untitled%204.png)
 
-![Untitled](aws-assets/Untitled%205.png)
+![Untitled](md-assets/Untitled%205.png)
 
-![Untitled](aws-assets/Untitled%206.png)
+![Untitled](md-assets/Untitled%206.png)
 
 Let’s create a cluster by giving the below information.
 
-![Untitled](aws-assets/Untitled%207.png)
+![Untitled](md-assets/Untitled%207.png)
 
 It takes some time for the cluster to get created and it should be in the active state once it is created.
 
@@ -283,13 +283,13 @@ It takes some time for the cluster to get created and it should be in the active
 
 It’s time to create nodes and before you do that we have to create this role called NodeInstanceRole (EC2). [Follow this guide to create one.](https://docs.aws.amazon.com/eks/latest/userguide/worker_node_IAM_role.html)
 
-![Untitled](aws-assets/Untitled%208.png)
+![Untitled](md-assets/Untitled%208.png)
 
 [Follow this guide to create a node group after the role is created.](https://docs.aws.amazon.com/eks/latest/userguide/create-managed-node-group.html)
 
-![Untitled](aws-assets/Untitled%209.png)
+![Untitled](md-assets/Untitled%209.png)
 
-![Untitled](aws-assets/Untitled%2010.png)
+![Untitled](md-assets/Untitled%2010.png)
 
 ## **Configure kubectl to use Cluster**
 
@@ -303,7 +303,7 @@ aws eks --region region-code update-kubeconfig --name cluster_name
 aws eks --region ap-northeast-1 update-kubeconfig --name frontend_cluster
 ```
 
-![Untitled](aws-assets/Untitled%2011.png)
+![Untitled](md-assets/Untitled%2011.png)
 
 You can check with these commands.
 
@@ -314,7 +314,7 @@ kubectl get nodes
 kubectl config current-context
 ```
 
-![Untitled](aws-assets/Untitled%2012.png)
+![Untitled](md-assets/Untitled%2012.png)
 
 ## **Deploy Kubernetes Objects On AWS EKS Cluster**
 
@@ -322,7 +322,7 @@ Now we have configured kubectl to use AWS EKS from our own machine. Let’s crea
 
 At the root folder just use this command to create objects `kubectl create -f manifest.yml`
 
-![Untitled](aws-assets/Untitled%2013.png)
+![Untitled](md-assets/Untitled%2013.png)
 
 You can use the following commands to verify all the objects are in the desired state.
 
@@ -335,13 +335,13 @@ kubectl get po
 kubectl get svc
 ```
 
-![Untitled](aws-assets/Untitled%2014.png)
+![Untitled](md-assets/Untitled%2014.png)
 
 You can check the settings automatically made in ALB by going to the AWS Management Console in **Amazon EC2 > Load Balancers > Copy DNS name.** Paste the URL into your browser:
 
-![Untitled](aws-assets/Untitled%2015.png)
+![Untitled](md-assets/Untitled%2015.png)
 
-![Untitled](aws-assets/Untitled%2016.png)
+![Untitled](md-assets/Untitled%2016.png)
 
 ## **Summary**
 
