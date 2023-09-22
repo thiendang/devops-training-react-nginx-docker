@@ -1,3 +1,22 @@
+* [How To Serve React Application With NGINX and Docker](#how-to-serve-react-application-with-nginx-and-docker)
+    * [Step 1: Create React App Using Vite (Skip this step if you already have a react app)](#step-1-create-react-app-using-vite-skip-this-step-if-you-already-have-a-reactapp)
+    * [Step 2: Update vite.config File](#step-2-update-viteconfig-file)
+    * [Step 3: Create a Dockerfile](#step-3-create-a-dockerfile)
+    * [Step 4: Add Commands to Dockerfile](#step-4-add-commands-to-dockerfile)
+    * [Step 5: Build the Dockerfile](#step-5-build-the-dockerfile)
+    * [Step 6: Run the Docker Container](#step-6-run-the-docker-container)
+    * [Step 7: Open the App in the Browser](#step-7-open-the-app-in-thebrowser)
+* [AWS — Deploying React App With NGINX on EKS](#aws--deploying-react-app-with-nginx-on-eks)
+  * [Pushing Docker Image To ECR](#pushing-docker-image-to-ecr)
+    * [AWS console](#aws-console)
+    * [Tagging your local Docker image and Pushing](#tagging-your-local-docker-image-and-pushing)
+  * [Create a Cluster and Worker Nodes](#create-a-cluster-and-worker-nodes)
+    * [Cluster Creation](#cluster-creation)
+    * [Create Worker Nodes](#create-worker-nodes)
+  * [Configure kubectl to use Cluster](#configure-kubectl-to-use-cluster)
+  * [Deploy Kubernetes Objects On AWS EKS Cluster](#deploy-kubernetes-objects-on-aws-eks-cluster)
+  * [Summary](#summary)
+
 # How To Serve React Application With NGINX and Docker
 
 Date Added: September 19, 2023 2:00 PM
